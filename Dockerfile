@@ -1,4 +1,4 @@
-FROM golang:alpine as go-builder
+FROM golang:alpine AS go-builder
 
 RUN apk add --no-cache go
 
@@ -10,7 +10,7 @@ RUN \
     CGO_ENABLED=0 GOOS=linux go build -o ./dwk
 
 
-FROM alpine:3.21
+FROM alpine:3.22
 
 # Exit if one of the cont-init.d scripts fails
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
@@ -35,8 +35,7 @@ RUN \
         qt5-qtbase \
         sed \
         tzdata \
-        wget; \
-    apk add --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+        wget \
         wireguard-go;
 
 COPY ./build/build-scripts /tmp/build-scripts

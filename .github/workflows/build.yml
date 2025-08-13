@@ -84,7 +84,7 @@ jobs:
         with:
           images: |
             ghcr.io/${{ github.repository }}
-            trigus42/qbittorrentvpn
+            JrdnRgrs/qbittorrentvpn
 
       - name: Checkout custom commit before building
         uses: actions/checkout@v4

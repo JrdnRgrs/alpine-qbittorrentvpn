@@ -1,21 +1,11 @@
+---
 name: Build Docker Image
 
-on:
+'on':
   push:
-    branches: [ "master" ]
-    tags: [ 'v*.*.*' ]
-    paths:
-      - '.github/workflows/**'
-      - 'rootfs/**'
-      - 'build/**'
-      - 'Dockerfile'
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
-    paths:
-      - '.github/workflows/**'
-      - 'rootfs/**'
-      - 'build/**'
-      - 'Dockerfile'
+    branches: ["master"]
   workflow_dispatch:
     inputs:
       push:
@@ -84,7 +74,7 @@ jobs:
         with:
           images: |
             ghcr.io/${{ github.repository }}
-            JrdnRgrs/qbittorrentvpn
+            ${{ vars.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}
 
       - name: Checkout custom commit before building
         uses: actions/checkout@v4

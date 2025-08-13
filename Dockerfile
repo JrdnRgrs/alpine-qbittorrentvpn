@@ -32,6 +32,7 @@ RUN \
         openssl \
         openvpn \
         procps \
+        python3 \
         qt5-qtbase \
         sed \
         tzdata \

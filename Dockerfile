@@ -9,7 +9,6 @@ RUN \
     go mod download; \
     CGO_ENABLED=0 GOOS=linux go build -o ./dwk
 
-
 FROM alpine:3.22
 
 # Exit if one of the cont-init.d scripts fails
